@@ -33,9 +33,9 @@ spec:
           value: gke-cluster-1-default-pool-8b890037-6tcb
         - name: REDIS_HOST
           value: gke-cluster-1-default-pool-8b890037-6tcb
-		- name: POSTGRES_USER
+	- name: POSTGRES_USER
           value: admin	
-		- name: POSTGRES_PASSWORD
+	- name: POSTGRES_PASSWORD
           value: admin 
         - name: DB_NAME
           value: superset
