@@ -1,0 +1,39 @@
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: superset-deployment
+  namespace: default
+spec:
+  selector:
+    matchLabels:
+      app: superset
+  template:
+    metadata:
+      labels:
+        app: superset
+    spec:
+      containers:
+      - env:
+        - name: DB_HOST
+          value: 10.162.0.20
+        - name: REDIS_HOST
+          value: 10.162.0.20
+        - name: POSTGRES_USER
+          value: admin
+        - name: POSTGRES_PASSWORD
+          value: admin
+        - name: DB_NAME
+          value: superset
+        - name: PYTHONPATH
+          value: "${PYTHONPATH}:/home/superset/superset/"
+        image: amancevice/superset:latest
+        name: superset
+        ports:
+        - containerPort: 8088
+        volumeMounts:
+        - mountPath: /home/superset/superset
+          name: superset-config
+      volumes:
+      - name: superset-config
+        configMap:
+          name: superset-config
