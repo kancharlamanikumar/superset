@@ -30,9 +30,9 @@ spec:
       containers:
       - env:
         - name: DB_HOST
-          value: gke-cluster-1-default-pool-8b890037-6tcb
+          value: 10.162.0.20
         - name: REDIS_HOST
-          value: gke-cluster-1-default-pool-8b890037-6tcb
+          value: 10.162.0.20
 	- name: POSTGRES_USER
           value: admin	
 	- name: POSTGRES_PASSWORD
