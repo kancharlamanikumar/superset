@@ -32,7 +32,7 @@ spec:
         - name: DB_HOST
           value: engage-poc-dev-pg3.postgres.database.azure.com
         - name: REDIS_HOST
-          value: 10.162.0.20
+          value: 10.224.0.4
         - name: POSTGRES_USER
           value: "postgres@engage-poc-dev-pg3"
         - name: POSTGRES_PASSWORD
