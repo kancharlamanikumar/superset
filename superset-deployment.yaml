@@ -13,7 +13,7 @@ spec:
     app: superset
   type: LoadBalancer
 ---
-apiVersion: apps/v1beta1
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: superset-deployment
@@ -30,17 +30,19 @@ spec:
       containers:
       - env:
         - name: DB_HOST
-          value: 10.162.0.20
+          value: engage-poc-dev-pg3.postgres.database.azure.com
         - name: REDIS_HOST
           value: 10.162.0.20
-	- name: POSTGRES_USER
-          value: admin	
-	- name: POSTGRES_PASSWORD
-          value: admin 
+        - name: POSTGRES_USER
+          value: "postgres@engage-poc-dev-pg3"
+        - name: POSTGRES_PASSWORD
+          value: engage123!
         - name: DB_NAME
-          value: superset
+          value: postgres
+#	- name: DB_SCHEMA
+     #    value: superset
         - name: PYTHONPATH
-          value: "${PYTHONPATH}:/home/superset/superset/"  
+          value: "${PYTHONPATH}:/home/superset/superset/"
         image: amancevice/superset:latest
         name: superset
         ports:
