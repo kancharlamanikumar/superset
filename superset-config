@@ -17,6 +17,12 @@ def get_env_variable(var_name, default=None):
             .format(var_name)
         )
 
+SESSION_COOKIE_SAMESITE = None
+ENABLE_PROXY_FIX = True
+PUBLIC_ROLE_LIKE_GAMMA = True
+FEATURE_FLAGS = {
+    "EMBEDDED_SUPERSET": True
+
 
 # Postgres
 
@@ -34,6 +40,12 @@ SQLALCHEMY_DATABASE_URI = 'postgresql://{0}:{1}@{2}:{3}/{4}'.format(
     POSTGRES_DB,
 )
 
+CORS_OPTIONS = {
+  'supports_credentials': True,
+  'allow_headers': ['*'],
+  'resources':['*'],
+  'origins': ['http://localhost:8088', 'http://localhost:8888']
+}
 
 # Redis
 
