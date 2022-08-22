@@ -39,8 +39,10 @@ spec:
           value: engage123!
         - name: DB_NAME
           value: postgres
-#	- name: DB_SCHEMA
-     #    value: superset
+        - name: DB_SCHEMA
+          value: superset  
+        - name: SUPERSET_FEATURE_EMBEDDED_SUPERSET
+          value: "true"
         - name: PYTHONPATH
           value: "${PYTHONPATH}:/home/superset/superset/"
         image: amancevice/superset:latest
@@ -49,7 +51,7 @@ spec:
         - containerPort: 8088
         volumeMounts:
         - mountPath: /home/superset/superset
-          name: superset-config
+          name: superset-config  
       volumes:
       - name: superset-config
         configMap:
